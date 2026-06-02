@@ -41,7 +41,7 @@ Status: success
   - `hooks/` — React hooks
   - `constants/` — config constants
 - **Patterns**: Server Components preferred, Server Actions for mutations, composition over large components, mobile-first, conversion-focused UX
-- **Git**: Not initialized
+- **Git**: Initialized — branch `feat/landing-mvp` (clean working tree, synced with origin)
 
 ## Conventions
 
@@ -86,7 +86,7 @@ Status: success
 ## Risks
 
 1. **No test runner**: Cannot run tests or enforce TDD. Must install before `sdd-verify` phase.
-2. **No git repo**: Cannot create branches, commits, or PRs. Must `git init` before SDD workflow.
+2. **~~No git repo~~**: Git IS initialized on `feat/landing-mvp`. Branch/commit/PR workflow is available.
 3. **Scaffold only**: Project is default Next.js template — no business logic, components, or architecture implemented yet.
 4. **Missing declared deps**: Zod, React Hook Form, Resend mentioned in AGENTS.md but not in package.json.
 5. **No `src/` directory**: AGENTS.md describes `src/` structure but project uses root `app/`. Decision needed on folder structure.
