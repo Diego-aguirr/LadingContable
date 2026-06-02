@@ -15,6 +15,7 @@ export default function Footer() {
               alt="Estudio Contable"
               width={140}
               height={40}
+              style={{ width: "auto", height: "auto" }}
               className="object-contain"
             />
             <p className="text-white/70 text-sm max-w-xs">
