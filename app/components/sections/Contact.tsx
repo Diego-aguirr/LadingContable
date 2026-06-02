@@ -47,6 +47,8 @@ export default function Contact() {
     if (result.success && result.whatsappUrl) {
       setSuccessUrl(result.whatsappUrl);
       reset();
+    } else if (result.error) {
+      setServerError(result.error);
     } else if (result.errors) {
       setServerError("Por favor, revisá los datos ingresados.");
     }
