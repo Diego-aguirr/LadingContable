@@ -2,7 +2,8 @@ import Image from "next/image";
 import { WHATSAPP_URL, NAV_ITEMS } from "@/app/constants";
 import Button from "@/app/components/ui/Button";
 
-const contactHref = NAV_ITEMS.find((item) => item.label === "Contacto")?.href ?? "#contacto";
+const contactHref =
+  NAV_ITEMS.find((item) => item.label === "Contacto")?.href ?? "#contacto";
 
 export default function Hero() {
   return (
@@ -10,7 +11,7 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/dibujoOficina.png"
+          src="/imagen2.png"
           alt="Oficina de estudio contable"
           fill
           className="object-cover"
@@ -45,7 +46,13 @@ export default function Hero() {
               Consultá por WhatsApp
             </Button>
 
-            <Button as="a" href={contactHref} variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button
+              as="a"
+              href={contactHref}
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white hover:text-primary"
+            >
               Completar formulario
             </Button>
           </div>
