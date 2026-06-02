@@ -15,7 +15,7 @@ export default function Footer() {
               alt="Estudio Contable"
               width={140}
               height={40}
-              className="brightness-0 invert"
+              className="object-contain"
             />
             <p className="text-white/70 text-sm max-w-xs">
               Expertos en monotributo y asesoramiento impositivo para
