@@ -47,15 +47,15 @@ Chain strategy: pending
 
 ## Phase 5: Layout & SEO
 
-- [ ] 5.1 Update `app/layout.tsx` — set `lang="es"`, update `metadata` export with production title/description, `openGraph` (title, description, locale: "es_AR", type: "website"), `twitter` card metadata. Done: `pnpm build` compiles. → depends on 4.1
-- [ ] 5.2 Add JSON-LD structured data to `app/layout.tsx` — `<script type="application/ld+json">` with `@type: "AccountingService"`, name, description, areaServed, serviceType. Done: script tag renders in HTML output. → depends on 5.1
+- [x] 5.1 Update `app/layout.tsx` — set `lang="es"`, update `metadata` export with production title/description, `openGraph` (title, description, locale: "es_AR", type: "website"), `twitter` card metadata. Done: `pnpm build` compiles. → depends on 4.1
+- [x] 5.2 Add JSON-LD structured data to `app/layout.tsx` — `<script type="application/ld+json">` with `@type: "AccountingService"`, name, description, areaServed, serviceType. Done: script tag renders in HTML output. → depends on 5.1
 
 ## Phase 6: UI Primitives
 
-- [ ] 6.1 Create `app/components/ui/Button.tsx` — Server Component, accepts `variant` (primary/secondary/outline), `size` (sm/md/lg), `as` (button/a), `href?`, children. Uses theme tokens. Done: `pnpm build` compiles. → depends on 4.1
-- [ ] 6.2 Create `app/components/ui/Input.tsx` — Client Component ("use client") for form integration, accepts `label`, `name`, `type`, `error?`, `register` from RHF. Renders label + input + error message. Done: `pnpm build` compiles. → depends on 4.1
-- [ ] 6.3 Create `app/components/ui/Card.tsx` — Server Component, accepts `children`, `className?`. Renders semantic div with padding/shadow/radius. Done: `pnpm build` compiles. → depends on 4.1
-- [ ] 6.4 Create `app/components/ui/Section.tsx` — Server Component, accepts `id`, `children`, `className?`. Renders `<section id={id}>` with container width + vertical padding. Done: `pnpm build` compiles. → depends on 4.1
+- [x] 6.1 Create `app/components/ui/Button.tsx` — Server Component, accepts `variant` (primary/secondary/outline), `size` (sm/md/lg), `as` (button/a), `href?`, children. Uses theme tokens. Done: `pnpm build` compiles. → depends on 4.1
+- [x] 6.2 Create `app/components/ui/Input.tsx` — Client Component ("use client") for form integration, accepts `label`, `name`, `type`, `error?`, `register` from RHF. Renders label + input + error message. Done: `pnpm build` compiles. → depends on 4.1
+- [x] 6.3 Create `app/components/ui/Card.tsx` — Server Component, accepts `children`, `className?`. Renders semantic div with padding/shadow/radius. Done: `pnpm build` compiles. → depends on 4.1
+- [x] 6.4 Create `app/components/ui/Section.tsx` — Server Component, accepts `id`, `children`, `className?`. Renders `<section id={id}>` with container width + vertical padding. Done: `pnpm build` compiles. → depends on 4.1
 
 ## Phase 7: Section Stubs
 
