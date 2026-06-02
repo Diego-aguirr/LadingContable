@@ -59,18 +59,18 @@ Chain strategy: pending
 
 ## Phase 7: Section Stubs
 
-- [ ] 7.1 Create `app/components/sections/Hero.tsx` — Server Component. `<section id="hero">` with `<h1>` headline, subtitle paragraph, WhatsApp CTA button (wa.me link), optional `next/image` for fondoOficina.png as background. Done: `pnpm build` compiles, section renders. → depends on 6.1, 2.2
-- [ ] 7.2 Create `app/components/sections/Benefits.tsx` — Server Component. `<section id="benefitos">` with `<h2>`, maps over `BENEFITS` constant, renders Card per item with icon/title/description. Done: `pnpm build` compiles. → depends on 6.3, 2.2
-- [ ] 7.3 Create `app/components/sections/Process.tsx` — Server Component. `<section id="proceso">` with `<h2>`, maps over `PROCESS_STEPS`, renders numbered step cards. Done: `pnpm build` compiles. → depends on 6.3, 2.2
-- [ ] 7.4 Create `app/components/sections/SocialProof.tsx` — Server Component. `<section id="testimonios">` with `<h2>`, maps over `TESTIMONIALS`, renders quote cards with name/role/rating. Done: `pnpm build` compiles. → depends on 6.3, 2.2
-- [ ] 7.5 Create `app/components/sections/FAQ.tsx` — Server Component. `<section id="faq">` with `<h2>`, maps over `FAQS`, renders `<details>/<summary>` for accessible accordion. Done: `pnpm build` compiles, `<details>` elements present. → depends on 2.2
-- [ ] 7.6 Create `app/components/sections/Contact.tsx` — Client Component ("use client"). `<section id="contacto">` with `<h2>`, React Hook Form + Zod integration, renders Input fields for name/email/phone/message + submit Button. Calls `submitContactForm` action. Done: `pnpm build` compiles. → depends on 6.1, 6.2, 3.2
-- [ ] 7.7 Create `app/components/sections/Footer.tsx` — Server Component. `<footer>` with copyright, WhatsApp link, minimal nav. Done: `pnpm build` compiles. → depends on 2.2
+- [x] 7.1 Create `app/components/sections/Hero.tsx` — Server Component. `<section id="hero">` with `<h1>` headline, subtitle paragraph, WhatsApp CTA button (wa.me link), optional `next/image` for fondoOficina.png as background. Done: `pnpm build` compiles, section renders. → depends on 6.1, 2.2
+- [x] 7.2 Create `app/components/sections/Benefits.tsx` — Server Component. `<section id="benefitos">` with `<h2>`, maps over `BENEFITS` constant, renders Card per item with icon/title/description. Done: `pnpm build` compiles. → depends on 6.3, 2.2
+- [x] 7.3 Create `app/components/sections/Process.tsx` — Server Component. `<section id="proceso">` with `<h2>`, maps over `PROCESS_STEPS`, renders numbered step cards. Done: `pnpm build` compiles. → depends on 6.3, 2.2
+- [x] 7.4 Create `app/components/sections/SocialProof.tsx` — Server Component. `<section id="testimonios">` with `<h2>`, maps over `TESTIMONIALS`, renders quote cards with name/role/rating. Done: `pnpm build` compiles. → depends on 6.3, 2.2
+- [x] 7.5 Create `app/components/sections/FAQ.tsx` — Server Component. `<section id="faq">` with `<h2>`, maps over `FAQS`, renders `<details>/<summary>` for accessible accordion. Done: `pnpm build` compiles, `<details>` elements present. → depends on 2.2
+- [x] 7.6 Create `app/components/sections/Contact.tsx` — Client Component ("use client"). `<section id="contacto">` with `<h2>`, React Hook Form + Zod integration, renders Input fields for name/email/phone/message + submit Button. Calls `submitContactForm` action. Done: `pnpm build` compiles. → depends on 6.1, 6.2, 3.2
+- [x] 7.7 Create `app/components/sections/Footer.tsx` — Server Component. `<footer>` with copyright, WhatsApp link, minimal nav. Done: `pnpm build` compiles. → depends on 2.2
 
 ## Phase 8: Page Composition
 
-- [ ] 8.1 Update `app/page.tsx` — replace default Next.js content with section imports in order: Hero → Benefits → Process → SocialProof → FAQ → Contact → Footer. Done: `pnpm build` compiles, sections render in correct DOM order. → depends on all Phase 7 tasks
+- [x] 8.1 Update `app/page.tsx` — replace default Next.js content with section imports in order: Hero → Benefits → Process → SocialProof → FAQ → Contact → Footer. Done: `pnpm build` compiles, sections render in correct DOM order. → depends on all Phase 7 tasks
 
 ## Phase 9: Verification
 
-- [ ] 9.1 Run `pnpm build && pnpm lint` — zero errors. Verify all section IDs present in HTML output, lang="es" on html tag, JSON-LD script rendered. Done: clean build + lint. → depends on 8.1
+- [x] 9.1 Run `pnpm build && pnpm lint` — zero errors. Verify all section IDs present in HTML output, lang="es" on html tag, JSON-LD script rendered. Done: clean build + lint. → depends on 8.1
