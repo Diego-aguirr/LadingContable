@@ -1,4 +1,4 @@
-# LadingContable
+# LandingContable
 
 Landing de conversión para estudio contable especializado en monotributo y asesoramiento impositivo para autónomos y pequeñas empresas en Argentina.
 
@@ -106,6 +106,18 @@ Los datos del negocio se configuran en `app/constants/index.ts`:
 - `PROCESS_STEPS`: pasos del proceso
 - `FAQS`: preguntas frecuentes
 - `TESTIMONIALS`: testimonios de clientes
+
+### Variables de entorno
+
+Configurar en Vercel o en un archivo `.env.local`:
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_SITE_URL` | URL del sitio (SEO/OG) | `https://tu-proyecto.vercel.app` |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Número de WhatsApp | `5491112345678` |
+| `NEXT_PUBLIC_PHONE` | Teléfono para JSON-LD | `+54-9-11-1234-5678` |
+
+Ver `.env.example` para documentación completa.
 
 ## License
 
