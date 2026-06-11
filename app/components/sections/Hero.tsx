@@ -51,7 +51,7 @@ export default function Hero() {
               href={contactHref}
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary"
+              className="border-white text-white hover:bg-white/10"
             >
               Completar formulario
             </Button>

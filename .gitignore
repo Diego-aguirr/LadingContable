@@ -33,6 +33,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# opencode
+# ai tools
 .opencode/
-node_modules
+.atl/
+openspec/
+CLAUDE.md
+.vscode/

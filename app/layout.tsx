@@ -64,7 +64,7 @@ const jsonLd = {
     "Recategorización de Monotributo",
   ],
   priceRange: "$$",
-  telephone: "+54-9-11-1234-5678",
+  telephone: process.env.NEXT_PUBLIC_PHONE || "+54-9-11-1234-5678",
   availableLanguage: "Spanish",
 };
 

@@ -1,4 +1,4 @@
-# AGENT.md
+# AGENTS.md
 
 # Landing Conversion Platform for Accounting Firm
 
@@ -362,7 +362,7 @@ Customer Portal
 - Billing Management
 - Appointment Scheduling
 
-  ***
+---
 
 # Agent Instructions
 
@@ -385,3 +385,179 @@ Every technical decision must support one of:
 - Performance
 - Maintainability
 - Scalability
+
+---
+
+# Production Readiness Checklist (MANDATORY)
+
+Before deploying ANY project, complete this checklist. No exceptions.
+
+## Pre-Deployment
+
+- [ ] `pnpm build` — zero errors
+- [ ] `pnpm lint` — zero warnings
+- [ ] TypeScript — strict mode, no `any` types
+- [ ] All environment variables documented in `.env.example`
+- [ ] No hardcoded secrets in code (API keys, tokens, passwords)
+- [ ] No placeholder values in production constants (phone numbers, URLs, emails)
+
+## Environment Variables
+
+Every project MUST have `.env.example` with:
+
+```bash
+# Description of what this variable does
+NEXT_PUBLIC_VARIABLE_NAME=
+```
+
+Required for landing pages:
+
+- `NEXT_PUBLIC_SITE_URL` — site URL for SEO/OG
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` — WhatsApp number (if applicable)
+- `NEXT_PUBLIC_PHONE` — phone for JSON-LD (if applicable)
+
+Rules:
+
+- All `NEXT_PUBLIC_*` vars are exposed to the client — never put secrets here
+- Use `process.env.VARIABLE_NAME || "fallback"` for defaults
+- Document every variable with description and example
+
+## Image Optimization
+
+MANDATORY before production:
+
+1. **Compress all images** — use sharp, TinyPNG, or Squoosh
+2. **Size limits:**
+   - Hero/banner: < 300KB
+   - Logo: < 50KB
+   - Icons: < 10KB
+   - Thumbnails: < 50KB
+3. **Formats:** WebP/AVIF preferred, PNG for transparency, JPG for photos
+4. **Dimensions:** max-width 1920px for banners, 400px for logos
+5. **Always use `next/image`** with `priority` for above-the-fold images
+
+```bash
+# Quick compression with sharp
+node -e "require('sharp')('input.png').resize({width: 1920}).png({quality: 80}).toFile('output.png')"
+```
+
+## SEO Checklist
+
+- [ ] `<html lang="es">` (or correct language)
+- [ ] Metadata API configured (title, description, keywords)
+- [ ] Open Graph tags (title, description, image 1200x630)
+- [ ] Twitter Cards (summary_large_image)
+- [ ] JSON-LD structured data
+- [ ] Semantic HTML (h1 > h2 > h3 hierarchy)
+- [ ] `robots.txt` (allow all for public sites)
+- [ ] `sitemap.xml` (auto-generated or manual)
+
+## Performance Targets
+
+| Metric | Target | How to check |
+|--------|--------|--------------|
+| Lighthouse | >= 90 | Chrome DevTools → Lighthouse |
+| LCP | < 2.5s | Chrome DevTools → Performance |
+| CLS | < 0.1 | Chrome DevTools → Performance |
+| INP | < 200ms | Chrome DevTools → Performance |
+| Build time | < 30s | `pnpm build` |
+| Bundle size | < 200KB initial | `next build` output |
+
+## Security Headers
+
+Add to `next.config.ts`:
+
+```typescript
+const securityHeaders = [
+  { key: "X-Frame-Options", value: "DENY" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "X-XSS-Protection", value: "1; mode=block" },
+];
+```
+
+## Vercel Deployment
+
+1. Push to GitHub
+2. Import repo in Vercel
+3. Configure Environment Variables (from `.env.example`)
+4. Deploy
+5. Verify:
+   - [ ] Site loads correctly
+   - [ ] All links work
+   - [ ] Forms submit correctly
+   - [ ] Images load (no broken paths)
+   - [ ] SEO meta tags present (view source)
+   - [ ] WhatsApp link opens correctly
+   - [ ] Mobile responsive
+
+## Post-Deployment
+
+- [ ] Test on real mobile device
+- [ ] Test WhatsApp flow end-to-end
+- [ ] Test contact form end-to-end
+- [ ] Check Google Search Console (if applicable)
+- [ ] Monitor Vercel analytics for errors
+
+---
+
+# Environment Variables Pattern
+
+Every external value MUST be configurable via environment variables:
+
+```typescript
+// app/constants/index.ts
+export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5491112345678";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+```
+
+Rules:
+
+1. **Never hardcode** phone numbers, URLs, API keys, or emails in constants
+2. **Always provide fallbacks** for local development
+3. **Document every variable** in `.env.example`
+4. **Use `NEXT_PUBLIC_` prefix** only for values that must be client-accessible
+5. **Sensitive keys** (API secrets, tokens) → never use `NEXT_PUBLIC_`
+
+---
+
+# Image Optimization Pattern
+
+MANDATORY for all images:
+
+```typescript
+// Hero/banner (above-the-fold)
+<Image
+  src="/hero.png"
+  alt="Description"
+  width={1920}
+  height={1080}
+  priority  // LCP image
+/>
+
+// Below-the-fold
+<Image
+  src="/logo.png"
+  alt="Logo"
+  width={400}
+  height={100}
+/>
+```
+
+Pre-compress before commit:
+
+```bash
+# Install sharp (dev dependency)
+pnpm add -D sharp
+
+# Compress
+node -e "
+const sharp = require('sharp');
+sharp('input.png')
+  .resize({width: 1920, withoutEnlargement: true})
+  .png({quality: 80, compressionLevel: 9})
+  .toFile('output.png');
+"
+```
+
+This document serves as the single source of truth for all agents working on this project.

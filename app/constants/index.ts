@@ -13,12 +13,16 @@ export const SITE_METADATA: SiteMetadata = {
     "estudio contable",
     "contabilidad autónomos",
   ],
-  ogImage: "/og-image.png",
-  siteUrl: "https://estudiocontable.com.ar",
+  ogImage: "/imagen2.png",
+  // ⚠️ En Vercel: configurar NEXT_PUBLIC_SITE_URL en Environment Variables
+  // En local: funciona con http://localhost:3000
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
 };
 
-export const WHATSAPP_URL =
-  "https://wa.me/5491112345678?text=Hola%2C%20quiero%20consultar%20sobre%20sus%20servicios%20contables";
+// ⚠️ En Vercel: configurar NEXT_PUBLIC_WHATSAPP_NUMBER en Environment Variables
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5491112345678";
+
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hola%2C%20quiero%20consultar%20sobre%20sus%20servicios%20contables`;
 
 export const NAV_ITEMS = [
   { label: "Beneficios", href: "#beneficios" },
