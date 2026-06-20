@@ -13,7 +13,7 @@ export const SITE_METADATA: SiteMetadata = {
     "estudio contable",
     "contabilidad autónomos",
   ],
-  ogImage: "/imagen2.png",
+  ogImage: "/imagen2.webp",
   // ⚠️ En Vercel: configurar NEXT_PUBLIC_SITE_URL en Environment Variables
   // En local: funciona con http://localhost:3000
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
